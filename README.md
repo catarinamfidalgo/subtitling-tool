@@ -1,7 +1,12 @@
 # Subtitling tool
 
-Turns a film's soundtrack into European Portuguese subtitles good enough to
-learn from.
+Subtitle a film from its own audio, with timings that land on the words rather
+than near them.
+
+Point it at a film, get subtitles back: text transcribed from the soundtrack,
+cut into readable lines, and timed to the moment each line is actually spoken.
+Written for European Portuguese, and for subtitles accurate enough to learn the
+language from.
 
 Whisper gets you most of the way and then leaves three problems it cannot see:
 it writes Brazilian orthography, it stamps timings at the wrong place, and it
