@@ -37,12 +37,12 @@ underneath it rather than everything being redone.
 ## Running it
 
 ```bash
-python3 format_srt.py  raw.srt  formatted.srt --songs 90-140,600-700
-python3 fix_pt.py      formatted.srt  fixed.srt
-python3 check_grammar.py fixed.srt  checked.srt     # or --report
-python3 retime.py                                    # writes word_times.json
-python3 apply_times.py                               # applies them
-python3 fix_timing.py  timed.srt  final.srt
+python3 format_srt.py    raw.srt  formatted.srt --songs 90-140,600-700
+python3 fix_pt.py        formatted.srt  fixed.srt
+python3 check_grammar.py fixed.srt  checked.srt          # or --report
+python3 retime.py        film.mkv -o word_times.json     # word-level timings
+python3 apply_times.py   checked.srt  word_times.json  final.srt
+python3 fix_timing.py    final.srt  final.srt            # optional second pass
 ```
 
 `--songs` takes second ranges that are sung. Without it nothing is marked as
@@ -50,15 +50,22 @@ song, which is the safe default.
 
 ## Films
 
-No film, and no film's subtitles, live in this repo — subtitles are a derivative
-work and belong with the film, not with the tool. Each film gets its own repo;
-the first is *Beauty and the Beast*.
+No film, and no film's subtitles, live in this repo. Subtitles are a derivative
+work of the film they came from, so they stay with whoever holds the film. The
+tool is the part that can be shared.
+
+*Beauty and the Beast* was the first film through it, and is where the
+Brazilian→European word list and the phrase fixes below came from.
+
+## Licence
+
+MIT — see `LICENSE`.
 
 ## Known rough edges
 
-- `retime.py` and `apply_times.py` still have `beauty.mp4` and `beauty.srt`
-  written into them. They need to take arguments before this runs on a second
-  film. This is the one real blocker.
+- `format_srt.py`, `fix_pt.py`, `check_grammar.py` and `fix_timing.py` still
+  need chaining by hand. One entry point that runs all six in order is the
+  obvious next step.
 - The Brazilian→European word list in `fix_pt.py` and the phrase fixes in
   `check_grammar.py` are hand-built from what one film happened to contain.
   They will grow with each new one, which argues for moving them out of the
