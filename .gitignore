@@ -1,0 +1,15 @@
+# Films. Large, and not ours to distribute.
+*.mp4
+*.mkv
+*.avi
+*.mov
+*.m4v
+
+# macOS clutter
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
