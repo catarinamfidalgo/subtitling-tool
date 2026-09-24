@@ -1,7 +1,6 @@
 # Subtitling tool
 
-Subtitle a film from its own audio, with timings that land on the words rather
-than near them.
+Subtitle a film from its own audio easily.
 
 Point it at a film, get subtitles back: text transcribed from the soundtrack,
 cut into readable lines, and timed to the moment each line is actually spoken.
